@@ -7,6 +7,10 @@ Use this template for all your "from scratch" deliverables. To start, simply run
 - `npm install`
 - `npm start`
 
+-create supabase table
+-create Dog component
+-create fetchDogs
+
 ## Available Scripts
 
 In the project directory, you can run:
