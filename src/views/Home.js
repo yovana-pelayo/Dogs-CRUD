@@ -5,6 +5,8 @@ export default function Home() {
   return (
     <div>
       <NavLink to="/">Home</NavLink>
+      <NavLink to="/dogs">Dogs</NavLink>
+
       <h1>Dogs HomePage!</h1>
     </div>
   );
