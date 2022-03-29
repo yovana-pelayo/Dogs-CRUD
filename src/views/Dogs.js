@@ -24,7 +24,10 @@ export default function Dogs() {
       {error && <p>{error}</p>}
       {dogs.map((dog) => (
         <div key={dog.id}>
-          <p>{dog.name}</p>
+          <p>
+            {dog.name}
+            <img src={dog.image} />
+          </p>
         </div>
       ))}
     </div>
