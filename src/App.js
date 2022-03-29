@@ -4,18 +4,18 @@ import Dogs from './views/Dogs';
 import Home from './views/Home';
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <div className="App">
+    <div className="App">
+      <BrowserRouter>
+        <Switch>
           <Route exact path="/">
             <Home />
           </Route>
           <Route exact path="/dogs">
             <Dogs />
           </Route>
-        </div>
-      </Switch>
-    </BrowserRouter>
+        </Switch>
+      </BrowserRouter>
+    </div>
   );
 }
 

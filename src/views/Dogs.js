@@ -4,17 +4,24 @@ import { fetchDogs } from '../services/dogs';
 
 export default function Dogs() {
   const [dogs, setDogs] = useState([]);
+  const [error, setError] = useState('');
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchDogs();
-      setDogs(data);
+      try {
+        const data = await fetchDogs();
+        setDogs(data);
+      } catch (e) {
+        setError(e.message);
+      }
     };
+
     fetchData();
   }, []);
 
   return (
     <div>
-      <h1>Thinking of adopting a dog? You came to the right place</h1>
+      <h1>Are you looking for a fuzz ball of love?</h1>
+      {error && <p>{error}</p>}
       {dogs.map((dog) => (
         <div key={dog.id}>
           <p>{dog.name}</p>
