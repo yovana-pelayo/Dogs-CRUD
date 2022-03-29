@@ -12,5 +12,14 @@ export default function Dogs() {
     fetchData();
   }, []);
 
-  return <div>dogs</div>;
+  return (
+    <div>
+      <h1>Thinking of adopting a dog? You came to the right place</h1>
+      {dogs.map((dog) => (
+        <div key={dog.id}>
+          <p>{dog.name}</p>
+        </div>
+      ))}
+    </div>
+  );
 }

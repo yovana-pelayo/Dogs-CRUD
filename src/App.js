@@ -7,10 +7,10 @@ function App() {
     <BrowserRouter>
       <Switch>
         <div className="App">
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/dogs">
+          <Route exact path="/dogs">
             <Dogs />
           </Route>
         </div>
