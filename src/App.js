@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+import DogDetail from './views/DogDetail';
 import Dogs from './views/Dogs';
 import Home from './views/Home';
 function App() {
@@ -12,6 +13,9 @@ function App() {
           </Route>
           <Route exact path="/dogs">
             <Dogs />
+          </Route>
+          <Route exact path="/dogs/:id">
+            <DogDetail />
           </Route>
         </Switch>
       </BrowserRouter>

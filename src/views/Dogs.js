@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { fetchDogs } from '../services/dogs';
-
+import { Link } from 'react-router-dom';
 export default function Dogs() {
   const [dogs, setDogs] = useState([]);
   const [error, setError] = useState('');
@@ -23,12 +23,12 @@ export default function Dogs() {
       <h1>Are you looking for a fuzz ball of love?</h1>
       {error && <p>{error}</p>}
       {dogs.map((dog) => (
-        <div key={dog.id}>
-          <p>
-            {dog.name}
+        <Link key={dog.id} to={`/dogs/${dog.id}`}>
+          <div>
+            <h3>{dog.name}</h3>
             <img src={dog.image} />
-          </p>
-        </div>
+          </div>
+        </Link>
       ))}
     </div>
   );
