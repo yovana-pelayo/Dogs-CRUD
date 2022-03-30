@@ -4,6 +4,7 @@ import DogDetail from './Components/DogDetail';
 import DogList from './Components/DogList';
 import Home from './views/Home';
 import AdminPage from './views/AdminPage';
+import EditDog from './views/EditDog';
 function App() {
   return (
     <div className="App">
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route exact path="/dogs/:id">
             <DogDetail />
+          </Route>
+          <Route exact path="/dogs/:id/edit">
+            <EditDog />
           </Route>
         </Switch>
       </BrowserRouter>
