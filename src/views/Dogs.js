@@ -2,26 +2,21 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { fetchDogs } from '../services/dogs';
 import { Link } from 'react-router-dom';
-export default function Dogs() {
+export default function DogList() {
   const [dogs, setDogs] = useState([]);
-  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const data = await fetchDogs();
-        setDogs(data);
-      } catch (e) {
-        setError(e.message);
-      }
+      const data = await fetchDogs();
+      setDogs(data);
+      setLoading(false);
     };
-
     fetchData();
   }, []);
-
+  if (loading) return <div>Loading</div>;
   return (
     <div>
       <h1>Are you looking for a fuzz ball of love?</h1>
-      {error && <p>{error}</p>}
       {dogs.map((dog) => (
         <Link key={dog.id} to={`/dogs/${dog.id}`}>
           <div>

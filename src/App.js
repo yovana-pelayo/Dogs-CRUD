@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import DogDetail from './views/DogDetail';
-import Dogs from './views/Dogs';
+import DogList from './views/Dogs';
 import Home from './views/Home';
+import NewPage from './views/NewPage';
 function App() {
   return (
     <div className="App">
@@ -12,10 +13,13 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/dogs">
-            <Dogs />
+            <DogList />
           </Route>
           <Route exact path="/dogs/:id">
             <DogDetail />
+          </Route>
+          <Route exact path="/dogs/new">
+            <NewPage />
           </Route>
         </Switch>
       </BrowserRouter>
