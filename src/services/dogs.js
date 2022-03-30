@@ -10,6 +10,7 @@ export async function fetchDogById(id) {
 }
 export async function createDog(dog) {
   const resp = await client.from('dogs').insert(dog);
+  console.log(dog);
   return checkError(resp);
 }
 // what is params toString? are we assigning an index value to the prop passed through?

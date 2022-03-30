@@ -5,19 +5,29 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function AdminPage() {
   const [name, setName] = useState('');
-  const [age, setAge] = useState(null);
+  const [age, setAge] = useState('');
   const [bio, setBio] = useState('');
   const [breed, setBreed] = useState('');
   const [image, setImage] = useState('');
-  //   const [error, setError] = useState('');
+  const [treat, setTreat] = useState('');
+  const [error, setError] = useState('');
   const history = useHistory();
 
   const handleSubmit = async () => {
-    await createDog({ name, age, bio, breed, image });
-    history.push('dogs');
+    try {
+      await createDog({ name, age, bio, breed, image, treat });
+      history.push('/dogs');
+    } catch (e) {
+      setError('OOOPSIE DAISIES');
+    }
   };
   return (
     <div>
+      {error && (
+        <p>
+          {error} <span onClick={() => setError('')}>❌</span>
+        </p>
+      )}
       <DogForm
         {...{
           name,
@@ -30,6 +40,8 @@ export default function AdminPage() {
           setBreed,
           image,
           setImage,
+          treat,
+          setTreat,
           handleSubmit,
         }}
       />
