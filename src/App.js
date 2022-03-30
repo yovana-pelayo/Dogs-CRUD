@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import DogDetail from './views/DogDetail';
-import DogList from './views/Dogs';
+import DogDetail from './Components/DogDetail';
+import DogList from './Components/DogList';
 import Home from './views/Home';
-import NewPage from './views/NewPage';
+import AdminPage from './views/AdminPage';
 function App() {
   return (
     <div className="App">
@@ -12,14 +12,14 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route exact path="/dogs/new">
+            <AdminPage />
+          </Route>
           <Route exact path="/dogs">
             <DogList />
           </Route>
           <Route exact path="/dogs/:id">
             <DogDetail />
-          </Route>
-          <Route exact path="/dogs/new">
-            <NewPage />
           </Route>
         </Switch>
       </BrowserRouter>

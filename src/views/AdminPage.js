@@ -3,7 +3,7 @@ import DogForm from '../Components/DogForm';
 import { createDog } from '../services/dogs';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-export default function NewPage() {
+export default function AdminPage() {
   const [name, setName] = useState('');
   const [age, setAge] = useState(null);
   const [bio, setBio] = useState('');

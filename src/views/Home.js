@@ -7,6 +7,7 @@ export default function Home() {
       <h1>Dogs HomePage!</h1>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/dogs">Dogs</NavLink>
+      <NavLink to="/dogs/new">New Dog</NavLink>
     </div>
   );
 }
