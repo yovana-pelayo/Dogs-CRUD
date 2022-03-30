@@ -19,11 +19,11 @@ function App() {
           <Route exact path="/dogs">
             <DogList />
           </Route>
-          <Route exact path="/dogs/:id">
-            <DogDetail />
-          </Route>
           <Route exact path="/dogs/:id/edit">
             <EditDog />
+          </Route>
+          <Route exact path="/dogs/:id">
+            <DogDetail />
           </Route>
         </Switch>
       </BrowserRouter>

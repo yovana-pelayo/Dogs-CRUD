@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchDogById } from '../services/dogs';
 
 export default function DogDetail() {
@@ -26,6 +26,9 @@ export default function DogDetail() {
         <li>Favorite Treat: {dog.treat}</li>
       </ul>
       <p>{dog.bio}</p>
+      <>
+        <Link to={`/dogs/${params.id}/edit`}>Edit Dog</Link>
+      </>
     </div>
   );
 }
