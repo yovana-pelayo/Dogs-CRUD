@@ -1,22 +1,36 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { fetchDogById } from '../services/dogs';
+import { Link, useParams, useHistory } from 'react-router-dom';
+import { deleteDog, fetchDogById } from '../services/dogs';
 
 export default function DogDetail() {
   const params = useParams();
+  const history = useHistory();
   const [dog, setDog] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  // const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchDogById(params.id);
       setDog(data);
-      setLoading(false);
+      // setLoading(false);
     };
     fetchData();
   }, [params.id]);
-  if (loading) return <div>LOADING</div>;
+  const handleSubmit = async () => {
+    try {
+      await deleteDog(params.id);
+      history.push(`/dogs`);
+    } catch (e) {
+      git;
+      setError('OOPSIES. Error has occurred');
+    }
+  };
+  // if (loading) return <div>LOADING</div>;
   return (
     <div>
+      {error && <p>{error}</p>}
+
       <h1>Fuzzy Buddies Details!</h1>
       <h2>{dog.name}</h2>
       <ul>
@@ -28,6 +42,7 @@ export default function DogDetail() {
       <p>{dog.bio}</p>
       <>
         <Link to={`/dogs/${params.id}/edit`}>Edit Dog</Link>
+        <button onClick={handleSubmit}>Delete Dog</button>
       </>
     </div>
   );

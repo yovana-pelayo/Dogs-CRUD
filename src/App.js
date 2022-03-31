@@ -5,10 +5,12 @@ import DogList from './Components/DogList';
 import Home from './views/Home';
 import AdminPage from './views/AdminPage';
 import EditDog from './views/EditDog';
+import Header from './Components/Header';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Header />
         <Switch>
           <Route exact path="/">
             <Home />

@@ -17,7 +17,9 @@ export default function DogForm({
 }) {
   return (
     <div>
+      <h1>Create Dog</h1>
       <label>
+        Name
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
       </label>
       <label>
