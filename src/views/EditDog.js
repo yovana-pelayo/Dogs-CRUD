@@ -52,6 +52,8 @@ export default function EditDog() {
           setBreed,
           image,
           setImage,
+          treat,
+          setTreat,
           handleSubmit,
         }}
       />

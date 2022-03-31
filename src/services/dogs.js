@@ -13,9 +13,10 @@ export async function createDog(dog) {
   return checkError(resp);
 }
 export async function updateDog(dog) {
-  const resp = await client.from('dogs').update(dog);
+  const resp = await client.from('dogs').update(dog).match({ id: dog.id });
   return checkError(resp);
 }
+
 // what is params toString? are we assigning an index value to the prop passed through?
 // what the hell is Bearer doing?
 // setting resp.json to the variable data is assigning it the json database value??
