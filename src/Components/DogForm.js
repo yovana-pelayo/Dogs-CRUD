@@ -39,6 +39,7 @@ export default function DogForm({
         <input type="text" value={image} onChange={(e) => setImage(e.target.value)} />
       </label>
       <label>
+        Favorite Treat
         <input type="text" value={treat} onChange={(e) => setTreat(e.target.value)} />
       </label>
       <button onClick={handleSubmit}>Save Dog</button>
