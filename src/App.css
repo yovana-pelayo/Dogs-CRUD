@@ -23,3 +23,7 @@ img {
 ul {
   list-style: none;
 }
+.link {
+  color: rgb(51, 158, 177);
+  text-decoration: underline;
+}

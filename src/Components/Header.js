@@ -35,7 +35,9 @@ export default function Header({ currentUser, setCurrentUser }) {
       {currentUser && (
         <ul>
           <li>{currentUser}</li>
-          <li className="link" onChange={handleLogout}></li>
+          <li className="link" onClick={handleLogout}>
+            Logout
+          </li>
         </ul>
       )}
     </div>
