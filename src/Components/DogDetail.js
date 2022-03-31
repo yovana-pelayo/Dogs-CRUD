@@ -8,12 +8,12 @@ export default function DogDetail() {
   const [dog, setDog] = useState({});
   const [error, setError] = useState('');
 
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchDogById(params.id);
       setDog(data);
-      // setLoading(false);
+      setLoading(false);
     };
     fetchData();
   }, [params.id]);
@@ -25,7 +25,7 @@ export default function DogDetail() {
       setError('OOPSIES. Error has occurred');
     }
   };
-  // if (loading) return <div>LOADING</div>;
+  if (loading) return <div>LOADING</div>;
   return (
     <div>
       {error && <p>{error}</p>}

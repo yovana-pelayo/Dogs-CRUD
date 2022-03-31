@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { fetchDogs } from '../services/dogs';
 import { Link } from 'react-router-dom';
+
 export default function DogList() {
   const [dogs, setDogs] = useState([]);
   const [loading, setLoading] = useState(true);
