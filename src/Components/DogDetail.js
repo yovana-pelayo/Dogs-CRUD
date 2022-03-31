@@ -22,7 +22,6 @@ export default function DogDetail() {
       await deleteDog(params.id);
       history.push(`/dogs`);
     } catch (e) {
-      git;
       setError('OOPSIES. Error has occurred');
     }
   };
