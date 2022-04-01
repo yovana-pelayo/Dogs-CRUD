@@ -17,7 +17,7 @@ export default function Header({ currentUser, setCurrentUser }) {
 
         {!currentUser && (
           <li>
-            <NavLink to="auth">Sign In</NavLink>
+            <NavLink to="/auth">Sign In</NavLink>
           </li>
         )}
         {currentUser && (

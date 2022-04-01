@@ -4,7 +4,7 @@ import DogList from '../Components/DogList';
 export default function Home() {
   return (
     <div>
-      <h1>Dogs HomePage!</h1>
+      <h1>Welcome To Our Dog Adoption Home Page</h1>
       <DogList />
     </div>
   );

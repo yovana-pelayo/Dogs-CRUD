@@ -41,6 +41,9 @@ export default function DogDetail({ currentUser }) {
               <button onClick={handleSubmit}>Delete Dog</button>
             </>
           )}
+          {/* {!currentUser && (
+            
+          )} */}
         </div>
       )}
     </>
