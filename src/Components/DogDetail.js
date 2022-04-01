@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import { deleteDog, fetchDogById } from '../services/dogs';
 
-export default function DogDetail() {
+export default function DogDetail({ currentUser }) {
   const params = useParams();
   const history = useHistory();
   const [dog, setDog] = useState({});
-  const [error, setError] = useState('');
-
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchDogById(params.id);
@@ -18,31 +17,32 @@ export default function DogDetail() {
     fetchData();
   }, [params.id]);
   const handleSubmit = async () => {
-    try {
-      await deleteDog(params.id);
-      history.push(`/dogs`);
-    } catch (e) {
-      setError('OOPSIES. Error has occurred');
-    }
+    await deleteDog(params.id);
+    history.push(`/dogs`);
   };
-  if (loading) return <div>LOADING</div>;
-  return (
-    <div>
-      {error && <p>{error}</p>}
 
-      <h1>Fuzzy Buddies Details!</h1>
-      <h2>{dog.name}</h2>
-      <ul>
-        <img src={dog.image} />
-        <li> Age: {dog.age}</li>
-        <li> Breed: {dog.breed}</li>
-        <li>Favorite Treat: {dog.treat}</li>
-      </ul>
-      <p>{dog.bio}</p>
-      <>
-        <Link to={`/dogs/${params.id}/edit`}>Edit Dog</Link>
-        <button onClick={handleSubmit}>Delete Dog</button>
-      </>
-    </div>
+  return (
+    <>
+      {loading && <p>Loading...</p>}
+      {!loading && (
+        <div>
+          <h1>Fuzzy Buddies Details!</h1>
+          <h2>{dog.name}</h2>
+
+          <img src={dog.image} />
+          <p>Age: {dog.age}</p>
+          <p> Breed: {dog.breed}</p>
+          <p>Favorite Treat: {dog.treat}</p>
+
+          <p>{dog.bio}</p>
+          {currentUser && (
+            <>
+              <Link to={`/dogs/${params.id}/edit`}>Edit Dog</Link>
+              <button onClick={handleSubmit}>Delete Dog</button>
+            </>
+          )}
+        </div>
+      )}
+    </>
   );
 }

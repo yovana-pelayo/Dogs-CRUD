@@ -14,11 +14,7 @@ export default function Header({ currentUser, setCurrentUser }) {
             Home
           </NavLink>
         </li>
-        <li>
-          <NavLink exact to="/dogs">
-            Dogs
-          </NavLink>
-        </li>
+
         {!currentUser && (
           <li>
             <NavLink to="auth">Sign In</NavLink>

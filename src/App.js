@@ -13,9 +13,9 @@ import { getUser } from './services/users';
 function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
+    <BrowserRouter>
+      <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
+      <div className="App">
         <Switch>
           <Route exact path="/">
             <Home />
@@ -23,21 +23,21 @@ function App() {
           <Route exact path="/auth">
             <Auth setCurrentUser={setCurrentUser} />
           </Route>
-          <Route exact path="/dogs/new">
-            {currentUser ? <AdminPage /> : <Redirect to="/auth" />}
-          </Route>
           <Route exact path="/dogs">
             <DogList />
           </Route>
+          <Route exact path="/dogs/new">
+            {currentUser ? <AdminPage /> : <Redirect to="/auth" />}
+          </Route>
           <Route exact path="/dogs/:id/edit">
-            <EditDog />
+            {currentUser ? <EditDog /> : <Redirect to="/auth" />}
           </Route>
           <Route exact path="/dogs/:id">
             <DogDetail currentUser={currentUser} />
           </Route>
         </Switch>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
